@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d8h3b2l0yht8"]
+
+[ext_resource type="Script" uid="uid://dirsh5hqm56g3" path="res://EnemyManager/Waves/EnWaves.gd" id="1_bp46h"]
+[ext_resource type="Script" uid="uid://b6k0uybcae1ai" path="res://EnemyManager/EnemySpawner.cs" id="2_lk3pg"]
+
+[node name="Wave_Generator" type="Timer" unique_id=281522363]
+autostart = true
+script = ExtResource("1_bp46h")
+
+[node name="Spawner" type="Node" parent="." unique_id=155040347]
+script = ExtResource("2_lk3pg")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]
