@@ -1,7 +1,5 @@
 extends State
 
-
-
 func Enter()->void:
 	print("Entered GamePlay State!")
 	pass

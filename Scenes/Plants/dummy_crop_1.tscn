@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ci26j66lj6lqm"]
+
+[ext_resource type="Texture2D" uid="uid://bdxv4us8el4da" path="res://icon.svg" id="1_fqdsm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmlt3"]
+size = Vector2(123, 139)
+
+[node name="DummyCrop1" type="Area2D" unique_id=304708341]
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1010619382]
+texture = ExtResource("1_fqdsm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1337975257]
+position = Vector2(3.5, -2.5)
+shape = SubResource("RectangleShape2D_dmlt3")

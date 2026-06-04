@@ -15,14 +15,14 @@ func handle_attack() -> void:
 		if can_shoot:
 			shoot()
 		
-func shoot():
+func shoot() -> void:
 	can_shoot = false
 	var bullet = Bullet.instantiate()
 	bullet.start(damage,bullet_spawnPoint.global_position,Vector2(1,0).rotated(gunSprite.global_rotation))
 	get_parent().get_parent().add_child(bullet) #hardcoded this for now will fix this later
 	$Cooldown.start()
  
-func handle_buffs(): #for managing damage or speed buffs
+func handle_buffs() -> void: #for managing damage or speed buffs
 	pass
 
 func _on_cooldown_timeout() -> void:

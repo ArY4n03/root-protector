@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://ovpe52bpt7y2"]
+
+[ext_resource type="Texture2D" uid="uid://db0jkx0k4k3r7" path="res://Sprites/UI/Gemini_Generated_Image_levuzelevuzelevu.png" id="1_q4b8a"]
+[ext_resource type="Texture2D" uid="uid://bfehnv78pu6r4" path="res://Sprites/UI/settings menu.png" id="2_mw62m"]
+[ext_resource type="FontFile" uid="uid://baxrcgrbxnrel" path="res://Fonts/VT323-Regular.ttf" id="3_mw62m"]
+
+[node name="SettingsMenu" type="Control" unique_id=1282806101]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=378982287]
+layout_mode = 0
+offset_right = 1408.0
+offset_bottom = 768.0
+texture = ExtResource("1_q4b8a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=873262383]
+position = Vector2(593, 347)
+texture = ExtResource("2_mw62m")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1935681102]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -79.0
+offset_right = 80.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sound" type="HBoxContainer" parent="VBoxContainer" unique_id=744845660]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Sound" unique_id=360330632]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6277576, 0.32846704, 0.112891145, 1)
+theme_override_fonts/font = ExtResource("3_mw62m")
+theme_override_font_sizes/font_size = 50
+text = "SFX"
+
+[node name="Music" type="HBoxContainer" parent="VBoxContainer" unique_id=399352648]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Music" unique_id=1862689213]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6277576, 0.32846704, 0.112891145, 1)
+theme_override_fonts/font = ExtResource("3_mw62m")
+theme_override_font_sizes/font_size = 50
+text = "MUSIC"
+
+[node name="FullScreen" type="HBoxContainer" parent="VBoxContainer" unique_id=246664125]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/FullScreen" unique_id=1365242268]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6277576, 0.32846704, 0.112891145, 1)
+theme_override_fonts/font = ExtResource("3_mw62m")
+theme_override_font_sizes/font_size = 50
+text = "FULLSCREEN"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1633295018]
+layout_mode = 0
+offset_left = 693.0
+offset_top = 245.0
+offset_right = 733.0
+offset_bottom = 325.0
+scale = Vector2(2, 2)
+
+[node name="SFX_checkbox" type="CheckBox" parent="VBoxContainer2" unique_id=791558351]
+layout_mode = 2
+
+[node name="Music_checkbox" type="CheckBox" parent="VBoxContainer2" unique_id=689611646]
+layout_mode = 2
+
+[node name="FullScreen_checkbox" type="CheckBox" parent="VBoxContainer2" unique_id=745389661]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=856495728]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 142.0
+offset_right = 676.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0.627451, 0.32941177, 0.11372549, 1)
+theme_override_fonts/font = ExtResource("3_mw62m")
+theme_override_font_sizes/font_size = 50
+text = "SETTINGS"
+
+[node name="SensitivyLabel" type="Label" parent="." unique_id=1581822812]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 434.0
+offset_right = 676.0
+offset_bottom = 484.0
+theme_override_colors/font_color = Color(0.627451, 0.32941177, 0.11372549, 1)
+theme_override_fonts/font = ExtResource("3_mw62m")
+theme_override_font_sizes/font_size = 50
+text = "Sensitivity"
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1149952427]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 503.0
+offset_right = 662.0
+offset_bottom = 519.0
+
+[node name="BackButton" type="Button" parent="." unique_id=849523076]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 534.0
+offset_right = 770.0
+offset_bottom = 565.0
+theme_override_colors/font_color = Color(0.627451, 0.32941177, 0.11372549, 1)
+theme_override_fonts/font = ExtResource("3_mw62m")
+theme_override_font_sizes/font_size = 25
+text = "Back
+"
+flat = true
