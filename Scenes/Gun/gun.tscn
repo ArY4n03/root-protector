@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://8tnj30o5iwo1"]
+
+[ext_resource type="Script" uid="uid://dtsn6aps2b66g" path="res://Scripts/Gun/gun.gd" id="1_goajg"]
+[ext_resource type="Texture2D" uid="uid://bx4f14iopafq4" path="res://Sprites/pistol-gun.png" id="2_k2pme"]
+
+[node name="Gun" type="StaticBody2D" unique_id=115037655]
+script = ExtResource("1_goajg")
+
+[node name="GunSprite" type="Sprite2D" parent="." unique_id=2022380322]
+scale = Vector2(0.15234378, 0.1171875)
+texture = ExtResource("2_k2pme")
+
+[node name="Marker2D" type="Marker2D" parent="GunSprite" unique_id=2143870687]
+position = Vector2(308.51276, -93.86667)
+
+[node name="Cooldown" type="Timer" parent="." unique_id=724829921]
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

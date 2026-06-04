@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bm5fxeo7vrm7q"]
+
+[ext_resource type="Script" uid="uid://cw00jdhi6nfvt" path="res://Scripts/Player/player.gd" id="1_a3d8c"]
+[ext_resource type="Texture2D" uid="uid://bdxv4us8el4da" path="res://icon.svg" id="1_uvnfx"]
+[ext_resource type="PackedScene" uid="uid://8tnj30o5iwo1" path="res://Scenes/Gun/gun.tscn" id="3_xpcdj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d8c"]
+size = Vector2(124, 122)
+
+[node name="Player" type="CharacterBody2D" unique_id=902619314 groups=["player"]]
+script = ExtResource("1_a3d8c")
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1659671791]
+texture = ExtResource("1_uvnfx")
+
+[node name="Gun" parent="." unique_id=115037655 instance=ExtResource("3_xpcdj")]
+position = Vector2(60, 29)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=279483513]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_a3d8c")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1132176677]
