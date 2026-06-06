@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dugmpg8loe8gc"]
+
+[node name="MainCam" type="Camera2D" unique_id=1626256960]

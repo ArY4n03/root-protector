@@ -4,9 +4,11 @@ using System.Collections.Generic;
 
 public partial class CropManager : Node
 {
+	[Export]  int max_count = 1024;
 	[Export] int growth_factor = 1;
 	
 	public ulong[] CropId;
+	public Area2D[] Crop;
 	public int[] Stage;// 1 2 and 3rd is the final stage
 	public bool[] Watered;
 	public int[] Growth;
@@ -17,6 +19,7 @@ public partial class CropManager : Node
 	{
 		//Setup references and initialize variables
 		CropId =  new ulong[1024];
+		Crop =  new Area2D[1024];
 		Stage = new int[1024];
 		Watered = new bool[1024];
 		Growth = new int[1024];
@@ -27,6 +30,7 @@ public partial class CropManager : Node
 	public override void _PhysicsProcess(double delta)
 	{
 		grow();
+		update_visuals();
 	}
 
 	public void destroy(ulong id,bool player)//called by player or cop
@@ -36,7 +40,9 @@ public partial class CropManager : Node
 		if (player && (Growth[idx] == 3))
 		{
 			//get location and Spawn powerup
-			
+			Vector2 pos = Crop[idx].GlobalPosition;
+			Crop[idx].QueueFree();
+			Crop[idx] = null;
 		}
 		swap_remove(idx, tail);
 		tail--;
@@ -49,6 +55,7 @@ public partial class CropManager : Node
 		if (tail >= 1024) return;//Capping max no. of crops
 		//update the dictionary
 		CropId[tail] = id;
+		Crop[tail]= InstanceFromId(CropId[tail]) as Area2D;
 		Stage[tail] = 1;
 		Watered[tail] = false;
 		Growth[tail] = 0;
@@ -79,6 +86,29 @@ public partial class CropManager : Node
 				Stage[idx]++;
 				Watered[idx] = false;
 				Growth[idx] = 0;
+			}
+		}
+	}
+
+	private void update_visuals()
+	{
+		for (int i = 0; i < tail; i++)
+		{
+			if(Crop[i] is null) continue;
+			switch (Stage[i])
+			{
+				case 1:
+					Crop[i].Modulate = Colors.Brown;
+					break;
+				case 2:
+					Crop[i].Modulate = Colors.Yellow;
+					break;
+				case 3:
+					Crop[i].Modulate = Colors.GreenYellow;
+					break;
+				default:
+					Crop[i].Modulate = Colors.Transparent;
+					break;
 			}
 		}
 	}

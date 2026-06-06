@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bdxv4us8el4da" path="res://icon.svg" id="1_uvnfx"]
 [ext_resource type="PackedScene" uid="uid://8tnj30o5iwo1" path="res://Scenes/Gun/gun.tscn" id="3_xpcdj"]
 
+[ext_resource type="Script" uid="uid://bcwvelfnar06f" path="res://Scripts/CropPlantingSystem/CropPlantingSystem.gd" id="4_mtuoh"]
+
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d8c"]
 size = Vector2(124, 122)
 
@@ -21,3 +24,8 @@ position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_a3d8c")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1132176677]
+
+
+[node name="PlantationAbility" type="Node" parent="." unique_id=903414415]
+script = ExtResource("4_mtuoh")
+

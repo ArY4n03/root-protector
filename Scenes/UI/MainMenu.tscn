@@ -35,13 +35,21 @@ offset_bottom = -39.0
 grow_vertical = 0
 theme_override_constants/separation = 50
 
+
 [node name="Play" type="TextureButton" parent="VBoxContainer" unique_id=289300518]
+
+[node name="StartGame" type="TextureButton" parent="VBoxContainer" unique_id=289300518]
+
 layout_mode = 2
 texture_normal = ExtResource("2_t6w0q")
 texture_pressed = ExtResource("3_k8um8")
 texture_hover = ExtResource("4_k8um8")
 
+
 [node name="Label" type="Label" parent="VBoxContainer/Play" unique_id=577283241]
+
+[node name="Label" type="Label" parent="VBoxContainer/StartGame" unique_id=577283241]
+
 layout_mode = 0
 offset_left = 59.0
 offset_right = 155.0
@@ -51,13 +59,21 @@ theme_override_fonts/font = ExtResource("5_744d7")
 theme_override_font_sizes/font_size = 50
 text = "PLAY"
 
+
 [node name="Quit" type="TextureButton" parent="VBoxContainer" unique_id=1782616505]
+
+[node name="ExitGame" type="TextureButton" parent="VBoxContainer" unique_id=1782616505]
+
 layout_mode = 2
 texture_normal = ExtResource("2_t6w0q")
 texture_pressed = ExtResource("3_k8um8")
 texture_hover = ExtResource("4_k8um8")
 
+
 [node name="Label" type="Label" parent="VBoxContainer/Quit" unique_id=478798013]
+
+[node name="Label" type="Label" parent="VBoxContainer/ExitGame" unique_id=478798013]
+
 layout_mode = 0
 offset_left = 59.0
 offset_right = 139.0
@@ -82,7 +98,11 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2.08, 1.88)
 
+
 [node name="TextureButton" type="TextureButton" parent="HBoxContainer" unique_id=506999446]
+
+[node name="Settings" type="TextureButton" parent="HBoxContainer" unique_id=506999446]
+
 layout_mode = 2
 texture_normal = ExtResource("4_t6w0q")
 

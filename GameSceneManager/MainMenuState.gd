@@ -34,6 +34,7 @@ func Enter()->void:
 	startbutton.button_down.connect(LoadGameLevel);
 	settingbutton.button_down.connect(ShowSettings);
 	exitbutton.button_down.connect(ExitGame);
+	
 	pass
 
 func Exit()->void:

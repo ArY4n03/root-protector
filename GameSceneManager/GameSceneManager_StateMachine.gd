@@ -2,11 +2,11 @@ class_name GameStateMachine extends StateMachine
 
 var prev_state:StringName
 
-var main_menu = preload("res://Entities/Menus/MainMenu.tscn")
-var settings_menu= preload("res://Entities/Menus/SettingsMenu.tscn")
-var pause_menu= preload("res://Entities/Menus/PauseMenu.tscn")
-var powerup_menu= preload("res://Entities/Menus/PowerUpMenu.tscn")
-var winloss_menu = preload("res://Entities/Menus/WinLossMenu.tscn")
+var main_menu = preload("res://Scenes/UI/MainMenu.tscn")
+var settings_menu= preload("res://Scenes/UI/SettingsMenu.tscn")
+var pause_menu= preload("res://Scenes/UI/PauseMenu.tscn")
+var powerup_menu= preload("res://Scenes/UI/PowerUpMenu.tscn")
+var winloss_menu = preload("res://Scenes/UI/WinLossMenu.tscn")
 
 
 var MainMenu:Control
@@ -36,27 +36,27 @@ func setup_states_nodes()->void:
 	n = Node.new()
 	add_child(n)
 	n.name = "MainMenuState"
-	n.set_script(load("res://Entities/GameSceneManager/MainMenuState.gd"))
+	n.set_script(load("res://GameSceneManager/MainMenuState.gd"))
 	n = Node.new()
 	add_child(n)
 	n.name = "SettingsMenuState"
-	n.set_script(load("res://Entities/GameSceneManager/SettingsMenuState.gd"))
+	n.set_script(load("res://GameSceneManager/SettingsMenuState.gd"))
 	n = Node.new()
 	add_child(n)
 	n.name = "GamePlayState"
-	n.set_script(load("res://Entities/GameSceneManager/GamePlayState.gd"))
+	n.set_script(load("res://GameSceneManager/GamePlayState.gd"))
 	n = Node.new()
 	add_child(n)
 	n.name = "PauseState"
-	n.set_script(load("res://Entities/GameSceneManager/PauseState.gd"))
+	n.set_script(load("res://GameSceneManager/PauseState.gd"))
 	n = Node.new()
 	add_child(n)
 	n.name = "PowerUpState"
-	n.set_script(load("res://Entities/GameSceneManager/PowerUpState.gd"))
+	n.set_script(load("res://GameSceneManager/PowerUpState.gd"))
 	n = Node.new()
 	add_child(n)
 	n.name = "WinLossState"
-	n.set_script(load("res://Entities/GameSceneManager/WinLossState.gd"))
+	n.set_script(load("res://GameSceneManager/WinLossState.gd"))
 	pass
 func setup_state_scenes()->void:
 	#print("Setting up UI scenes")

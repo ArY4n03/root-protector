@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cyvq8wqm4qnys"]
+
+[node name="PowerUpMenu" type="Control" unique_id=1586552734]
+layout_mode = 3
+anchors_preset = 0
