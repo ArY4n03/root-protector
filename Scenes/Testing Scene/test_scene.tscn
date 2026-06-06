@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bm5fxeo7vrm7q" path="res://Scenes/Player/player.tscn" id="1_cfvt1"]
 [ext_resource type="Texture2D" uid="uid://bdxv4us8el4da" path="res://icon.svg" id="2_tagb8"]
 
-[node name="TestScene" type="Node2D" unique_id=1506436093]
+[node name="Main" type="Node2D" unique_id=1506436093]
 
 [node name="Player" parent="." unique_id=902619314 instance=ExtResource("1_cfvt1")]
 
@@ -26,3 +26,11 @@ texture = ExtResource("2_tagb8")
 [node name="Icon5" type="Sprite2D" parent="." unique_id=1789274014]
 position = Vector2(-259, -414)
 texture = ExtResource("2_tagb8")
+
+[node name="CropContainer" type="Node" parent="." unique_id=1771012683]
+
+[node name="BulletContainer" type="Node" parent="." unique_id=2040479133]
+
+[node name="CopContainer" type="Node" parent="." unique_id=1483595350]
+
+[node name="PowerupContainer" type="Node" parent="." unique_id=765100337]

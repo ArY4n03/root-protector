@@ -6,6 +6,8 @@ extends Node
 var placeholder = null #placeholder to indicate plants position before its planted
 var cur_crop = null #current crop that is to be planted
 
+var cur_cropIndex = 0 #index of current crop in placeholder_plant
+
 func _process(delta: float) -> void:
 	handle_input()
 

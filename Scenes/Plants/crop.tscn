@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://2gxhn8eb0045"]
+
+[ext_resource type="Script" uid="uid://ble7rgkn7tfyn" path="res://Scripts/Plants/Crop.gd" id="1_bffuo"]
+
+[node name="Crop" type="Area2D" unique_id=128287691]
+collision_layer = 4
+script = ExtResource("1_bffuo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1449717147]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083104335]
+
+[node name="PowerUp Timer" type="Timer" parent="." unique_id=274012912]
+autostart = true
+
+[connection signal="timeout" from="PowerUp Timer" to="." method="spawn_powerup"]

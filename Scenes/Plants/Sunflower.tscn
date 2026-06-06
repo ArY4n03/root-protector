@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dxu0sqo8t7qiv"]
+
+[ext_resource type="PackedScene" uid="uid://2gxhn8eb0045" path="res://Scenes/Plants/crop.tscn" id="1_pue2j"]
+[ext_resource type="PackedScene" uid="uid://bryp7cl1hg6ur" path="res://Scenes/PowerUp/LifePowerup.tscn" id="2_hr4jb"]
+[ext_resource type="Texture2D" uid="uid://c5rn1435br7sw" path="res://Sprites/UI/sunflower.png" id="2_k2ndl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hr4jb"]
+
+[node name="Crop" unique_id=128287691 instance=ExtResource("1_pue2j")]
+powerupTime = 1
+powerupScene = ExtResource("2_hr4jb")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1449717147]
+texture = ExtResource("2_k2ndl")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1083104335]
+shape = SubResource("RectangleShape2D_hr4jb")

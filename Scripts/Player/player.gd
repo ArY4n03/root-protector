@@ -35,6 +35,8 @@ func handle_input() -> Vector2:
 	
 	return input_dir
 
+func handle_powerups(id:int):
+	pass
 
 func limit_camera() -> void: #limits camera
 	pass
