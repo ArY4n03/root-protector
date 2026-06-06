@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cgjuv6rngth2d"]
+
+[ext_resource type="PackedScene" uid="uid://d8h3b2l0yht8" path="res://EnemyManager/Waves/wave_generator.tscn" id="1_bexhn"]
+[ext_resource type="Script" uid="uid://4etofje656a2" path="res://EnemyManager/E_StateMachine.cs" id="3_2nifc"]
+[ext_resource type="PackedScene" uid="uid://bm5fxeo7vrm7q" path="res://Scenes/Player/player.tscn" id="3_wkftn"]
+[ext_resource type="PackedScene" uid="uid://dugmpg8loe8gc" path="res://TrackerCamera/main_cam.tscn" id="4_wkftn"]
+[ext_resource type="Script" uid="uid://5pbkgi7k1yh" path="res://TrackerCamera/player_tracker.gd" id="5_q4iis"]
+
+[node name="Level" type="Node2D" unique_id=698339189]
+
+[node name="Wave_Generator" parent="." unique_id=281522363 instance=ExtResource("1_bexhn")]
+
+[node name="EnemyStateMachine" type="Node" parent="." unique_id=2073501436]
+script = ExtResource("3_2nifc")
+
+[node name="Player" parent="." unique_id=902619314 instance=ExtResource("3_wkftn")]
+
+[node name="MainCam" parent="." unique_id=1626256960 instance=ExtResource("4_wkftn")]
+script = ExtResource("5_q4iis")

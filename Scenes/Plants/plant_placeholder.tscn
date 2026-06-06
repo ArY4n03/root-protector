@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://v2q8tf3wgssv"]
+
+[ext_resource type="Texture2D" uid="uid://bdxv4us8el4da" path="res://icon.svg" id="1_7i7h0"]
+[ext_resource type="Script" uid="uid://k5lxug1wffvm" path="res://Scripts/Plants/plant_placeholder.gd" id="1_k0yrm"]
+[ext_resource type="PackedScene" uid="uid://ci26j66lj6lqm" path="res://Scenes/Plants/dummy_crop_1.tscn" id="2_m7rix"]
+[ext_resource type="Texture2D" uid="uid://hgx0tdy0wthi" path="res://Sprites/key.png" id="3_76jv6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0yrm"]
+size = Vector2(135, 129)
+
+[node name="PlantPlaceholder" type="Area2D" unique_id=1746453050]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_k0yrm")
+crops = Array[PackedScene]([ExtResource("2_m7rix"), ExtResource("2_m7rix")])
+cropImage = Array[Texture2D]([ExtResource("1_7i7h0"), ExtResource("3_76jv6")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=576124406]
+texture = ExtResource("1_7i7h0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2001608273]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_k0yrm")

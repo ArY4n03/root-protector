@@ -7,12 +7,14 @@ var previous_state:State #for pushdown automaton
 var states:Dictionary[StringName,State] ={}
 
 func _ready() -> void:
-	initial_state = get_child(0) as State# GGGGGGGG DANGER GGGGGGGGGGGG !!!
+
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child #appending children[state names as key and state as value] into the dictionary...
 			child.Transitioned.connect(on_state_transition)
-			#print(child.name.to_lower())
+			print(child.name.to_lower())
+	initial_state = get_child(5) as State# GGGGGGGG DANGER GGGGGGGGGGGG !!!
+	#print(initial_state.name)
 	if initial_state:
 		initial_state.Enter()
 		current_state=initial_state

@@ -11,4 +11,5 @@ func _on_timeout() -> void:
 	#call enemy spawner
 	enemy_spawner.Spawn(wave_no);
 	wave_no += 1;
+	#prints("Wave no : ",wave_no)
 	pass # Replace with function body.

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://unyit44tixry"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v72uy"]
+size = Vector2(75, 75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwcnp"]
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 10.28
+
+[sub_resource type="BoxMesh" id="BoxMesh_fieg7"]
+material = SubResource("StandardMaterial3D_iwcnp")
+size = Vector3(75, 25, 1)
+
+[node name="Cop2D" type="CharacterBody2D" unique_id=908874494]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=302064031]
+shape = SubResource("RectangleShape2D_v72uy")
+debug_color = Color(0.99215686, 0, 0.23921569, 0.5137255)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=990142477]
+position = Vector2(0, -1)
+scale = Vector2(1, 3.1666667)
+mesh = SubResource("BoxMesh_fieg7")
