@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public partial class CropManager : Node
 {
-	[Export]  int max_count = 1024;
+	[Export]  int max_count = 128;
 	[Export] int growth_factor = 1;
 	
 	public ulong[] CropId;
@@ -14,6 +14,7 @@ public partial class CropManager : Node
 	public int[] Growth;
 	private int tail = 0;
 	public Dictionary<ulong, int> idindex;
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

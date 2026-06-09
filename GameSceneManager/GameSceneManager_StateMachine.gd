@@ -1,6 +1,7 @@
 class_name GameStateMachine extends StateMachine
 
 var prev_state:StringName
+#var curr_state:StringName ........store current for plantation ssys
 
 var main_menu = preload("res://Scenes/UI/MainMenu.tscn")
 var settings_menu= preload("res://Scenes/UI/SettingsMenu.tscn")
