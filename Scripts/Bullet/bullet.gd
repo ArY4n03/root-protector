@@ -28,7 +28,5 @@ func _process(delta: float) -> void:
 func free():
 	queue_free()
 	
-
-
 func _on_lifetime_timeout() -> void:
 	queue_free()

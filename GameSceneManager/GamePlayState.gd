@@ -17,6 +17,7 @@ func Physics_Update(delta)->void:
 		pass
 	
 	pass
+	
 func HideOtherUIs()->void:
 	var sm:GameStateMachine = get_parent() as GameStateMachine
 	sm.MainMenu.hide()

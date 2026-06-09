@@ -13,6 +13,8 @@ material = SubResource("StandardMaterial3D_iwcnp")
 size = Vector3(75, 25, 1)
 
 [node name="Cop2D" type="CharacterBody2D" unique_id=908874494]
+collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=302064031]
 shape = SubResource("RectangleShape2D_v72uy")

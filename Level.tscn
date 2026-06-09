@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dugmpg8loe8gc" path="res://TrackerCamera/main_cam.tscn" id="4_wkftn"]
 [ext_resource type="Script" uid="uid://5pbkgi7k1yh" path="res://TrackerCamera/player_tracker.gd" id="5_q4iis"]
 
-[node name="Level" type="Node2D" unique_id=698339189]
+[node name="Main" type="Node2D" unique_id=698339189]
 
 [node name="Wave_Generator" parent="." unique_id=281522363 instance=ExtResource("1_bexhn")]
 
@@ -17,3 +17,11 @@ script = ExtResource("3_2nifc")
 
 [node name="MainCam" parent="." unique_id=1626256960 instance=ExtResource("4_wkftn")]
 script = ExtResource("5_q4iis")
+
+[node name="CropContainer" type="Node" parent="." unique_id=2055257153]
+
+[node name="CopContainer" type="Node" parent="." unique_id=1654625088]
+
+[node name="PowerupContainer" type="Node" parent="." unique_id=327932083]
+
+[node name="BulletContainer" type="Node" parent="." unique_id=1533436243]
