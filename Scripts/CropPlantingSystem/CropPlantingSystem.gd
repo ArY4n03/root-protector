@@ -31,5 +31,3 @@ func handle_input() -> void:
 		spawn_placeholder()
 
 		#print("Planting")
-
-	

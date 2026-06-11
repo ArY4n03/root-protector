@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bm5fxeo7vrm7q" path="res://Scenes/Player/player.tscn" id="3_wkftn"]
 [ext_resource type="PackedScene" uid="uid://dugmpg8loe8gc" path="res://TrackerCamera/main_cam.tscn" id="4_wkftn"]
 [ext_resource type="Script" uid="uid://5pbkgi7k1yh" path="res://TrackerCamera/player_tracker.gd" id="5_q4iis"]
+[ext_resource type="Script" uid="uid://6rf8hjrfm7m4" path="res://Scripts/PowerUp/PowerUp_Manager.gd" id="6_m3clv"]
 
 [node name="Main" type="Node2D" unique_id=698339189]
 
@@ -25,3 +26,7 @@ script = ExtResource("5_q4iis")
 [node name="PowerupContainer" type="Node" parent="." unique_id=327932083]
 
 [node name="BulletContainer" type="Node" parent="." unique_id=1533436243]
+
+[node name="PowerupManager" type="Node" parent="." unique_id=636396047]
+script = ExtResource("6_m3clv")
+metadata/_custom_type_script = "uid://6rf8hjrfm7m4"

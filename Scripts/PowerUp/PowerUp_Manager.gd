@@ -1,4 +1,5 @@
 extends Node
+class_name PowerupManager
 enum POWERUP {LIFE,SPEED,DAMAGE}
 var player = null
 

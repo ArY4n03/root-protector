@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	handle_attack()
 	
 func handle_attack() -> void:
-	if Input.is_action_just_pressed("Attack"):
+	if Input.is_action_pressed("Attack"):
 		if can_shoot:
 			shoot()
  

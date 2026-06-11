@@ -14,5 +14,6 @@ texture = ExtResource("2_k2pme")
 position = Vector2(308.51276, -93.86667)
 
 [node name="Cooldown" type="Timer" parent="." unique_id=724829921]
+wait_time = 0.4
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

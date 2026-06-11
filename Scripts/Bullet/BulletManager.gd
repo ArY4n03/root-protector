@@ -1,6 +1,8 @@
 extends Node2D
 
-const MAX_BULLETS := 1000
+const MAX_BULLETS := 200
+
+var bullet_pool: Array[Area2D]
 
 class Bullet:
 	var pos: Vector2
@@ -11,11 +13,12 @@ class Bullet:
 	var last_pos: Vector2
 	var isplayer : bool #true if player fires the bullet
 	var visual: Node2D
+	var bulletIdx : int
 	
 	func deactivate():
 		self.active = false
-		self.visual.active = false
-
+		self.visual.hide()
+		
 var bullets: Array[Bullet] = []
 
 var space_state: PhysicsDirectSpaceState2D
@@ -25,11 +28,20 @@ func _ready():
 
 	for i in MAX_BULLETS:
 		bullets.append(Bullet.new())
+	
+	for i in MAX_BULLETS:
+		var b = preload("res://Scenes/Bullet/bullet.tscn").instantiate()
+		get_tree().current_scene.get_node("BulletContainer").add_child(b)
+		b.hide()
+		#b.set_process(false)
+		bullet_pool.append(b)
 
+func spawn_bullet(position: Vector2, direction: Vector2, speed: float, damage: int, isplayer: bool = true):
 
-func spawn_bullet(position: Vector2, direction: Vector2, speed: float, damage: int,isplayer:bool = true):
-	for b in bullets:
-		if !b.active:
+	for i in MAX_BULLETS:
+		if !bullets[i].active:
+
+			var b = bullets[i]
 			b.active = true
 			b.pos = position
 			b.last_pos = position
@@ -37,9 +49,12 @@ func spawn_bullet(position: Vector2, direction: Vector2, speed: float, damage: i
 			b.life = 3.0
 			b.damage = damage
 			b.isplayer = isplayer
-			b.visual = preload("res://Scenes/Bullet/bullet.tscn").instantiate()
-			get_tree().current_scene.add_child(b.visual)
+			b.bulletIdx = i
+			
+			var v = bullet_pool[b.bulletIdx]
+			b.visual = v
 			b.visual.global_position = position
+			b.visual.show()
 			return
 
 
@@ -50,7 +65,8 @@ func _physics_process(delta):
 
 		b.life -= delta
 		if b.life <= 0:
-			b.active = false
+			bullet_pool[b.bulletIdx]
+			b.deactivate()
 			continue
 
 		b.last_pos = b.pos
@@ -71,14 +87,9 @@ func _check_collision(b: Bullet):
 	if result:
 		var collider = result["collider"]
 		if collider.name != "Player":
-			print(collider.name)
 			var sm = get_tree().current_scene.get_node("EnemyStateMachine")
-
 			var key = collider.get_instance_id()
-
-			if sm.idindex.has(key):
-				print(sm.idindex[key])
-			else:
-				print("Key not found")
-				
+			
+			sm.logoutCop(key)
 			b.deactivate()
+			

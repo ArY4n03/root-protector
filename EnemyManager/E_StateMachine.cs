@@ -40,11 +40,17 @@ public partial class E_StateMachine : Node
 		attack[tail] = false;
 		destroy[tail] = false;
 		target[tail] = camera;
+		idindex.Add(id,tail);
 		tail++;
 	}
 
 	public void logoutCop(ulong id)//StateMachine does this...
 	{
+		if (!idindex.ContainsKey(id))
+		{
+			GD.PrintErr("logoutCop called with unknown id: " + id);
+			return;
+		}
 		int idx = idindex[id];
 		copId[idx] = 0;
 		cops[idx].QueueFree();
@@ -53,7 +59,7 @@ public partial class E_StateMachine : Node
 		move[idx] = false;
 		attack[idx] = false;
 		destroy[idx] = false;
-		swap_remove(idx, tail);
+		swap_remove(idx, tail-1);
 		tail--;
 	}
 	
@@ -207,6 +213,7 @@ public partial class E_StateMachine : Node
 		  attack = new bool[max_entity_count];
 		  destroy = new bool[max_entity_count];
 		  target = new Node2D[max_entity_count];
+		  idindex = new Godot.Collections.Dictionary<ulong, int>();
 		//Refs setup..
 		camera = GetParent().FindChild("Camera2D") as Camera2D;
 	}
