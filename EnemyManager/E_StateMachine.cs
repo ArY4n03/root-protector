@@ -40,6 +40,7 @@ public partial class E_StateMachine : Node
 		attack[tail] = false;
 		destroy[tail] = false;
 		target[tail] = camera;
+		idindex.Add(id, tail);
 		tail++;
 	}
 
@@ -68,6 +69,7 @@ public partial class E_StateMachine : Node
 			Mover(i);
 			Attack(i);
 		}
+		//GD.Print(idindex);
 	}
 
 	public void Idle(int idx)
@@ -117,7 +119,7 @@ public partial class E_StateMachine : Node
 		move[idx] = true;
 		
 		//for target calc , loc of player/nearest crop etc
-		Node2D target = nearest_target(cops[idx].Position);
+		Node2D target = nearest_target(copId[idx]);
 		//will move them by velocity 
 		//GD.Print("Mover's Target : ",target.GlobalPosition);
 		cops[idx].Velocity = (target.GlobalPosition - cops[idx].Position).Normalized() * CopMoveSpeed;
@@ -126,22 +128,24 @@ public partial class E_StateMachine : Node
 	
 	public void Attack(int idx)
 	{
-		if ((cops[idx].GlobalPosition - target[idx].GlobalPosition).LengthSquared() < CopAttackRadius) 
+		//GD.Print("Target Name : "+target[idx].Name);
+		if ((cops[idx].GlobalPosition - target[idx].GlobalPosition).LengthSquared() < CopAttackRadius) // if in attack range
 		{
 			attack[idx] = true;
 			move[idx] = false;
 			idle[idx] = false;
 			
-			if (target[idx] is Area2D a)//if target is crop then destroy return form this funcc
+			if (target[idx].Name != "Camera2D")//if target is crop then destroy return form this funcc
 			{
-				GD.Print("Crop detected!");
+				//GD.Print("Crop detected!");
 				Destroy(idx);
 				return;
 			}
-			//Play attack animation...
-			MeshInstance2D mesh = cops[idx].FindChild("MeshInstance2D") as MeshInstance2D;
-			mesh.Modulate = Colors.Red; 
-			
+			if(target[idx].Name == "Camera2D")
+			{
+				MeshInstance2D mesh = cops[idx].FindChild("MeshInstance2D") as MeshInstance2D;
+				mesh.Modulate = Colors.Red; 
+			}
 			//go back to idle               // cooldown is to be added
 			attack[idx] = false;
 			idle[idx] = true;
@@ -177,11 +181,12 @@ public partial class E_StateMachine : Node
 		destroy[tail] = false;
 	}
 
-	private Node2D nearest_target(Vector2 position)
+	private Node2D nearest_target(ulong id)//Update Target array
 	{
-		Node2D target = null;
-		target = camera as Node2D;//for debugging..
-		float minDistance = (target.GlobalPosition - position).LengthSquared();
+		//GD.Print("ID : " + id );
+		Vector2 position = cops[idindex[id]].GlobalPosition;
+		Node2D tar = camera as Node2D;//for debugging..
+		float minDistance = (tar.GlobalPosition - position).LengthSquared();
 		foreach (var crop in cropManager.Crop)
 		{
 			if (crop is null) continue;
@@ -189,11 +194,18 @@ public partial class E_StateMachine : Node
 			if (minDistance > distance)
 			{
 				minDistance = distance;
-				target = crop;
+				tar = crop;
+				target[idindex[id]] = tar;
+			}
+			if (minDistance > (camera.GlobalPosition - position).LengthSquared())
+			{
+				minDistance = distance;
+				tar = camera;
+				target[idindex[id]] = tar;
 			}
 		}
-		
-		return target;
+		//GD.Print("Target Name : "+tar.Name);
+		return tar;
 	}
 
 	private void ini_and_ref()
@@ -207,6 +219,8 @@ public partial class E_StateMachine : Node
 		  attack = new bool[max_entity_count];
 		  destroy = new bool[max_entity_count];
 		  target = new Node2D[max_entity_count];
+
+		  idindex = new Godot.Collections.Dictionary<ulong, int>();
 		//Refs setup..
 		camera = GetParent().FindChild("Camera2D") as Camera2D;
 	}

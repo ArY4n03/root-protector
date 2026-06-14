@@ -6,7 +6,8 @@ public partial class CropManager : Node
 {
 	[Export]  int max_count = 128;
 	[Export] int growth_factor = 1;
-	
+	[Export] float watering_radius = 200.0f;
+	[Export]  int GrowthThreshold = 100;
 	public ulong[] CropId;
 	public Area2D[] Crop;
 	public int[] Stage;// 1 2 and 3rd is the final stage
@@ -19,6 +20,7 @@ public partial class CropManager : Node
 	public override void _Ready()
 	{
 		//Setup references and initialize variables
+		
 		CropId =  new ulong[1024];
 		Crop =  new Area2D[1024];
 		Stage = new int[1024];
@@ -61,14 +63,31 @@ public partial class CropManager : Node
 		Watered[tail] = false;
 		Growth[tail] = 0;
 		idindex.Add(id, tail);
+		//GD.Print("planting " + id + " index : "  + tail);
 		tail++;
 	}
 
-	public void water(ulong id)//called by player...
+	public void water(Vector2 PlayerPos)//called by player...
 	{
-		int idx = idindex[id];
-		if (Stage[idx] == 3) return;
-		Watered[idx] = true;
+		foreach (ulong crop in CropId)
+		{
+			if(crop == 0) return;
+			int idx = idindex[crop];
+			//GD.Print("crop idx : " + idx);
+			//distance from player...
+			
+			float dis = (Crop[idx].GlobalPosition - PlayerPos).LengthSquared();
+			if (dis < watering_radius * watering_radius)
+			{
+				//GD.Print("is inside radius idx : " + idx);
+				if(Stage[idx] != 3)
+				{
+					Watered[idx] = true;
+					Growth[idx] = 0;
+					//GD.Print("watering idx : " + idx + " id : " + crop);
+				}
+			}
+		}
 	}
 	
 	public void grow()
@@ -82,11 +101,12 @@ public partial class CropManager : Node
 			{
 				Growth[idx] += growth_factor;
 			}
-			if(Growth[idx]>1000)
+			if(Growth[idx]>GrowthThreshold)
 			{
 				Stage[idx]++;
 				Watered[idx] = false;
 				Growth[idx] = 0;
+				
 			}
 		}
 	}

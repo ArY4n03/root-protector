@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dkamn0gywgfmw"]
+
+[sub_resource type="TextMesh" id="TextMesh_wlk4n"]
+text = "A"
+font_size = 127
+
+[node name="prop" type="Node2D" unique_id=1190225594]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=463952556]
+mesh = SubResource("TextMesh_wlk4n")

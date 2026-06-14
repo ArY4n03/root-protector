@@ -15,6 +15,7 @@ func _ready() -> void:
 func _physics_process(delta) -> void:
 	handle_movement(delta)
 	move_and_slide()
+	handle_watering()
 
 func handle_movement(delta) -> void:
 	Gun.look_at(get_global_mouse_position())
@@ -35,6 +36,11 @@ func handle_input() -> Vector2:
 	
 	return input_dir
 
+func handle_watering() -> void:
+	if(Input.is_action_just_pressed("Water")):
+		CropManager.water(global_position);
+		#print("watering...")
+		pass
 
 func limit_camera() -> void: #limits camera
 	pass

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cx0q3hm8knki4"]
+
+[ext_resource type="Texture2D" uid="uid://k4l20jyuplm3" path="res://Orb.png" id="1_ri1vb"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ho2tb"]
+diffuse_texture = ExtResource("1_ri1vb")
+normal_texture = ExtResource("1_ri1vb")
+specular_texture = ExtResource("1_ri1vb")
+
+[node name="Orb" type="Node2D" unique_id=2105722331]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=976524427]
+position = Vector2(2.75, 2.75)
+scale = Vector2(0.1, 0.1)
+texture = SubResource("CanvasTexture_ho2tb")

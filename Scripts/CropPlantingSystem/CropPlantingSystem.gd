@@ -17,6 +17,7 @@ func plant_crop(pos:Vector2,crop:PackedScene) -> void:
 	cur_crop.global_position = pos
 	get_tree().current_scene.add_child(cur_crop)
 	CropManager.plant(cur_crop.get_instance_id())
+	#print("Planting GDscript cropplantingsystem")
 	
 func spawn_placeholder() -> void:
 	placeholder = placeholder_scene.instantiate()

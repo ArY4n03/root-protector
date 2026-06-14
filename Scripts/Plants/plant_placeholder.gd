@@ -26,6 +26,8 @@ func plant_crop() -> void:
 	
 func handle_input():
 	if Input.is_action_just_pressed("Attack"):
+		#print("GGG")
 		if check_area():
+			
 			CropPlantingSystem.plant_crop(global_position,crops[cur_crop])
 		queue_free()
