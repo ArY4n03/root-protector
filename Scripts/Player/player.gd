@@ -9,7 +9,10 @@ extends CharacterBody2D
 @onready var Gun = $Gun/GunSprite
 
 var can_attack = true
+var health = 100
+
 func _ready() -> void:
+	BulletManager.create_bullet_pool()
 	limit_camera()
 	
 func _physics_process(delta) -> void:

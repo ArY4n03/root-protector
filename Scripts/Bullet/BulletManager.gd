@@ -29,6 +29,7 @@ func _ready():
 	for i in MAX_BULLETS:
 		bullets.append(Bullet.new())
 	
+func create_bullet_pool():	
 	for i in MAX_BULLETS:
 		var b = preload("res://Scenes/Bullet/bullet.tscn").instantiate()
 		get_tree().current_scene.get_node("BulletContainer").add_child(b)
@@ -79,7 +80,6 @@ func _physics_process(delta):
 
 func _check_collision(b: Bullet):
 	var query = PhysicsRayQueryParameters2D.create(b.last_pos, b.pos)
-	query.collide_with_areas = true
 	query.collide_with_bodies = true
 
 	var result = space_state.intersect_ray(query)

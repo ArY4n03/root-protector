@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6fr2k0664f8q"]
 
 [ext_resource type="Script" uid="uid://dyaoroaebuj2w" path="res://Scripts/PowerUp/power_up.gd" id="1_ndlpc"]
+[ext_resource type="Texture2D" uid="uid://dupxruqc8ao62" path="res://Sprites/Bullet/bullet (player).png" id="2_j51eb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ey4s"]
 radius = 24.020824
@@ -10,6 +11,7 @@ collision_layer = 16
 script = ExtResource("1_ndlpc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1009699804]
+texture = ExtResource("2_j51eb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=143731623]
 shape = SubResource("CircleShape2D_7ey4s")

@@ -1,9 +1,5 @@
 [gd_scene format=3 uid="uid://bryp7cl1hg6ur"]
 
 [ext_resource type="PackedScene" uid="uid://6fr2k0664f8q" path="res://Scenes/PowerUp/power_up.tscn" id="1_w5h0h"]
-[ext_resource type="Texture2D" uid="uid://dupxruqc8ao62" path="res://Sprites/Bullet/bullet (player).png" id="2_yq30o"]
 
 [node name="PowerUp" unique_id=118340269 instance=ExtResource("1_w5h0h")]
-
-[node name="Sprite2D" parent="." index="0" unique_id=1009699804]
-texture = ExtResource("2_yq30o")

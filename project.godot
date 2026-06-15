@@ -25,7 +25,6 @@ GobalScript="*uid://dg7kpkcri3n2i"
 CropPlantingSystem="*uid://bcwvelfnar06f"
 CropManager="*uid://83dqkvw6akow"
 GameSceneManager="*uid://bu8jhrpfv3ckq"
-PowerUpManager="*uid://6rf8hjrfm7m4"
 BulletManager="*uid://c4r003l4x2gq0"
 
 [display]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bpaqy1nnisry2"]
+
+[ext_resource type="Script" uid="uid://6rf8hjrfm7m4" path="res://Scripts/PowerUp/PowerUp_Manager.gd" id="1_cms4g"]
+
+[node name="PowerUpManager" type="Node2D" unique_id=1967047209]
+script = ExtResource("1_cms4g")
+
+[node name="speed_timer" type="Timer" parent="." unique_id=1556911479]
+
+[node name="damage_timer" type="Timer" parent="." unique_id=1796255327]
+
+[connection signal="timeout" from="speed_timer" to="." method="reset_speed"]
+[connection signal="timeout" from="damage_timer" to="." method="reset_damage"]

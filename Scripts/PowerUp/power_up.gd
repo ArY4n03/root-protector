@@ -2,8 +2,8 @@ extends Area2D
 
 
 enum POWERUP {LIFE,SPEED,DAMAGE}
-@export var powerup_tpe: POWERUP
+@export var powerup_type: POWERUP
 
 func _on_body_entered(body: Node2D) -> void:
-	PowerUpManager.powerup_player(powerup_tpe)
-	
+	get_tree().current_scene.get_node("PowerUpManager").powerup_player(powerup_type)
+	queue_free()
